@@ -5,18 +5,14 @@ import headerBrand from './assets/img/header-brand-1.png'
 import headerBrandTwo from './assets/img/header-brand-2.png'
 import section from './assets/img/section.png'
 import footerLogo from './assets/img/footer-logo.png'
+import './index.css'
 
 function App() {
 
-  const [getButton, setButton] = useState<any>('')
+  const [login, setLogin] = useState<any>(false)
   
-  const loginButton = () => {
-    const buttonD = <button className='w-36 h-36  mr-28 bg-grey rounded-full'>D</button> 
-    setButton(buttonD)
-  }
-  const button = () => {
-    const buttonS = <button className=' bg-white w-28 h-9 rounded font-bold text-xl mr-28'>LOGIN</button>
-    return(buttonS)
+  const loginButton = ():void => {
+    setLogin(!login)
   }
 
   return (
@@ -34,7 +30,7 @@ function App() {
             <li>|</li>
             <li>Voting</li>
           </ul>
-          <button onClick={() => loginButton()}>{!getButton ? button() : getButton}</button>
+          <button onClick={loginButton}>{login ? <button className='w-36 h-36  mr-28 bg-grey rounded-full'>D</button>  : <button className=' bg-white w-28 h-9 rounded font-bold text-xl mr-28'>LOGIN</button>}</button>
           
         </div>
       </div>
