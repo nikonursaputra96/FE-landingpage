@@ -6,15 +6,16 @@ import Aside from '../component/Home/Aside'
 import Footer from '../component/Home/Footer'
 
 
-const Home:React.FC = () => {
+const Home: React.FC = () => {
   return (
-    <>
-    <Navbar/>
-    <Header/>
-    <Section/>
-    <Aside/>
-    <Footer/>
-    </>
+    <div className='bg-grey'>
+      <Navbar />
+      <Header />
+      <Section />
+      <Aside />
+      <Footer />
+    </div>
+
   )
 }
 

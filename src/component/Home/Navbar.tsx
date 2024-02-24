@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import logodw from '../../assets/img/logodw.png'
+import { useNavigate } from 'react-router-dom'
 
 const Navbar:React.FC = () => {
 
@@ -9,6 +10,9 @@ const Navbar:React.FC = () => {
     const loginButton = ():void => {
       setLogin(!login)
     }
+
+    const navigate = useNavigate()
+
  
   return (
     <div className='flex justify-between items-center bg-black h-16'>
@@ -22,9 +26,9 @@ const Navbar:React.FC = () => {
             <li>|</li>
             <li>Paslon</li>
             <li>|</li>
-            <li>Voting</li>
+            <li className='cursor-pointer' onClick={() => navigate('/vote')}>Voting</li>
           </ul>
-          <button onClick={loginButton}>{login ? <button className='w-36 h-36  mr-28 bg-grey rounded-full'>D</button>  : <button className=' bg-white w-28 h-9 rounded font-bold text-xl mr-28'>LOGIN</button>}</button>
+          <p onClick={loginButton}>{login ? <button className='w-36 h-36  mr-28 bg-grey rounded-full'>D</button>  : <button className=' bg-white w-28 h-9 rounded font-bold text-xl mr-28'>LOGIN</button>}</p>
           
         </div>
       </div>

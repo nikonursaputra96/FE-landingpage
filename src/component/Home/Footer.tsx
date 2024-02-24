@@ -13,7 +13,7 @@ const Footer:React.FC = () => {
                     </div>
                 </div>
             </footer>
-            <div className='flex h-3 bg-white '>
+            <div className='flex h-2 bg-white '>
             </div>
             <div className='flex h-56 bg-black '>
                 <p className='text-white text-xl mx-auto flex justify-center items-center'>Komisi Pemilihan Umum DumbWays.ID | yourname 2023</p>
