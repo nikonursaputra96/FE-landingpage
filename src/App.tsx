@@ -8,6 +8,10 @@ import ModalLogin from './component/Modal/ModalLogin'
 import ModalRegister from './component/Modal/ModalRegister'
 import ModalVote from './component/Modal/ModalVote'
 import Admin from './pages/Admin'
+import ListPaslon from './pages/ListPaslon'
+import ListPartai from './pages/ListPartai'
+import AddPartai from './pages/AddPartai'
+import AddPaslon from './pages/AddPaslon'
 
 const App: React.FC = () => {
 
@@ -23,6 +27,10 @@ const App: React.FC = () => {
         <Route path='/register' element= {<ModalRegister/>} />
         <Route path='/modalvote' element= {<ModalVote/>} />
         <Route path='/admin' element= {<Admin/>} />
+        <Route path='/paslon' element= {<ListPaslon/>} />
+        <Route path='/partai' element= {<ListPartai/>} />
+        <Route path='/add-partai' element= {<AddPartai/>} />
+        <Route path='/add-paslon' element= {<AddPaslon/>} />
       
       </Routes>
     </Router>

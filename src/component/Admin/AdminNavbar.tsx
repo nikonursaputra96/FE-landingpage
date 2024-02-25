@@ -1,7 +1,11 @@
 import React from 'react'
 import logodw from '../../assets/img/logodw.png'
+import { useNavigate } from 'react-router-dom'
 
-const AdminLandingPage:React.FC = () => {
+const AdminNavbar:React.FC = () => {
+
+  const navigate = useNavigate()
+
   return (
     <div>
         <div className='flex justify-between items-center bg-black h-16'>
@@ -11,11 +15,11 @@ const AdminLandingPage:React.FC = () => {
         </div>
         <div className='flex items-center'>
           <ul className='flex text-white text-xl gap-x-5 mr-10 '>
-            <li>Partai</li>
+            <li className='cursor-pointer' onClick={() => navigate('/add-partai')}>Partai</li>
             <li>|</li>
-            <li>Paslon</li>
+            <li className='cursor-pointer' onClick={() => navigate('/add-paslon')}>Paslon</li>
           </ul>
-            <button className='w-36 h-36  mr-28 bg-grey rounded-full'>A</button> 
+            <button className='w-36 h-36  mr-28 bg-grey rounded-full font-bold text-xl'>A</button> 
           
         </div>
       </div>
@@ -23,4 +27,4 @@ const AdminLandingPage:React.FC = () => {
   )
 }
 
-export default AdminLandingPage
+export default AdminNavbar
