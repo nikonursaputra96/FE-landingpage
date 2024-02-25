@@ -1,5 +1,5 @@
 import React from 'react'
-import monkey from '../../assets/img/monkey.png'
+import InfoPaslon from '../../lib/InfoPaslon.json'
 
 const Info: React.FC = () => {
     return (
@@ -9,39 +9,46 @@ const Info: React.FC = () => {
             </div>
             <div className='flex justify-center items-center mb-20'>
                 <button className=' ml-24 w-12 h-12 rounded-full bg-white text-3xl text-center items-center flex justify-center text-gray-400'>&lt;</button>
-                <div className='bg-white w-947 h-494 flex mx-auto rounded-xl shadow-lg shadow-gray-500 justify-center items-center'>
-                    <img src={monkey} alt="" className='w-246 h-328' />
-                    <div className='ml-10'>
-                        <div className='leading-tight'>
-                            <p className='text-2xl font-bold'>Nomor Urut:1</p>
-                            <p className='text-4xl font-bold text-reddark-2'>CINTARA SURYA PALOH</p>
+
+                {InfoPaslon && InfoPaslon.map((info, index) => {
+                    return (
+                        <div key={index} className='bg-white w-947 h-494 flex mx-auto rounded-xl shadow-lg shadow-gray-500 justify-center items-center'>
+                            <img src={info.image} alt="" className='w-246 h-328' />
+                            <div className='ml-10'>
+                                    <div className='leading-tight'>
+                                        <p className='text-2xl font-bold'>Nomor Urut:{info.nomor}</p>
+                                        <p className='text-4xl font-bold text-reddark-2'>{info.name}</p>
+                                    </div>
+                                    <p className='text-2xl mt-4'>Visi & Misi :</p>
+                                    <ul className='list-disc text-2xl ml-8 leading-tight'>
+                                        <li>
+                                            {info.vismis[0]}
+                                        </li>
+                                        <li>
+                                            {info.vismis[1]}
+                                        </li>
+                                        <li>
+                                            {info.vismis[2]}
+                                        </li>
+                                    </ul>
+                                    <p className='text-2xl mt-4'>Koalisi :</p>
+                                    <ul className='list-disc text-2xl ml-8 leading-tight'>
+                                        <li>
+                                            {info.koalisi[0]}
+                                        </li>
+                                        <li>
+                                            {info.koalisi[1]}
+                                        </li>
+                                        <li>
+                                            {info.koalisi[2]}
+                                        </li>
+                                    </ul>
+                            </div>
                         </div>
-                        <p className='text-2xl mt-4'>Visi & Misi :</p>
-                        <ul className='list-disc text-2xl ml-8 leading-tight'>
-                            <li>
-                                Memindahkan Indonesia ke Isekai.
-                            </li>
-                            <li>
-                                Nonton anime 3x sehari.
-                            </li>
-                            <li>
-                                Melakukan peresapan pada budaya jepang.
-                            </li>
-                        </ul>
-                        <p className='text-2xl mt-4'>Koalisi :</p>
-                        <ul className='list-disc text-2xl ml-8 leading-tight'>
-                            <li>
-                                Partai Persatuan Wiboo.
-                            </li>
-                            <li>
-                                Partai Redbull.
-                            </li>
-                            <li>
-                                Partai Black Magic
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+                    )
+                })}
+
+
                 <button className=' mr-24 w-12 h-12 rounded-full bg-white text-3xl text-center items-center flex justify-center text-gray-400'>&gt;</button>
             </div>
 
