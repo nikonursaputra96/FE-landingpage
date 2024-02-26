@@ -122,7 +122,8 @@ module.exports = {
       },
       boxShadow: {
         '3xl': '0 12px 20px -5px rgba(54, 162, 235, 1)',
-      }
+      },
+      // screens: { 'smin': { 'max': '640px' } },
       
     },
   },

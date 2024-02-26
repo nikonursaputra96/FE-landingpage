@@ -6,7 +6,7 @@ import Info from '../component/Vote/Info'
 
 const Vote:React.FC = () => {
   return (
-    <div className='bg-grey'>
+    <div>
         <Navbar/>
         <SectionVote/>
         <Info/>

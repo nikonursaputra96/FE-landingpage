@@ -8,12 +8,12 @@ const Section: React.FC = () => {
     return (
 
         
-        <section className='flex-wrap flex justify-center items-center gap-6 mt-12'>
+        <section className='flex-wrap flex justify-center items-center gap-6 mt-12 px-6'>
             {HomeNews && HomeNews.map((news, index) => {
                 return (
-                    <div key={index} >
+                    <div key={index}>
                         {index === 0 && (
-                        <div className=' w-753 h-421 bg-image cursor-pointer' onClick={() => navigate('/detail')}>
+                        <div className=' lg:w-753 lg:h-421 bg-center bg-image cursor-pointer h-[421px] overflow-hidden' onClick={() => navigate('/detail')}>
                             <button className='bg-red w-232 h-47 rounded-xl text-white font-bold text-xl mt-72 ml-4'>{news.date}</button>
                             <h1 className='font-bold text-3xl text-white ml-4'>{news.title}</h1>
                             <p className='text-white text-2xl ml-4'>{news.author}</p>
@@ -24,7 +24,7 @@ const Section: React.FC = () => {
 
                         <div className=' w-367 h-421 bg-white'>
                             <img src={news.image} className='' alt="" />
-                            <button className='bg-red w-217 h-47 rounded-xl text-white font-bold text-xl mt-3 ml-4'>Senin, 03 JAN 2023</button>
+                            <button className='bg-red w-217 h-47 rounded-xl text-white font-bold text-xl mt-4 ml-4'>Senin, 03 JAN 2023</button>
                             <h1 className='font-bold text-3xl mt-3 ml-4'>KPU TETAPKAN 3 MENTOR TERBAIK</h1>
                             <p className='text-2xl ml-4'>Super Admin</p>
                         </div>

@@ -6,7 +6,7 @@ const Detail: React.FC = () => {
   const navigate = useNavigate()
   return (
     <div>
-      <div className='bg-white w-1140 h-1800 mx-auto'>
+      <div className='bg-white mx-auto'>
         <div className='flex items-center justify-between mx-14 py-10'>
           <div className='flex items-center cursor-pointer' onClick={() => navigate('/')}>
             <p className='text-3xl font-bold justify-start'>&larr;</p>
@@ -20,10 +20,10 @@ const Detail: React.FC = () => {
           <p className='text-4xl font-bold text-yellowdark'>KPU DUMBWAYS TETAPKAN 3 MENTOR TERBAIK</p>
           <p className='text-xl'>Super Admin</p>
           <p className='text-xl'>Senin, 03 Jan 2023</p>
-          <img src={kpu} alt="" className='w-1054 h-530 mx-auto mt-6' />
+          <img src={kpu} alt="" className='w-1054 h-530 mx-auto mt-6 object-cover object-center px-6' />
         </div>
 
-        <div className='mx-11 text-justify'>
+        <div className='mx-11 text-justify mb-12'>
           <p className='mt-5'>
           Praesent ac tortor vel urna fermentum luctus. Nam posuere justo ut efficitur dapibus. Sed a lacinia elit. Curabitur eu dapibus tellus. Proin fermentum purus id lectus imperdiet, vel feugiat enim interdum. Sed non diam vel mi tristique interdum. Integer bibendum, nulla ac euismod commodo, quam mi vehicula justo, eu dapibus ligula massa vel ligula. Nulla facilisi. Integer sit amet congue massa. Suspendisse potenti. Sed interdum, lacus ac ultrices facilisis, ligula enim pellentesque elit, vel varius nisi odio at purus. Sed suscipit purus quis tortor posuere, in varius est euismod. Mauris aliquam urna non elit faucibus, eu fermentum turpis mattis. Quisque vel nisl vitae sapien congue dapibus. Vivamus auctor, velit ut condimentum bibendum, purus lacus scelerisque ligula, nec gravida arcu velit id libero. In hac habitasse platea dictumst. Praesent ac tortor vel urna fermentum luctus. Nam posuere justo ut efficitur dapibus. Sed a lacinia elit. Curabitur eu dapibus tellus. Proin fermentum purus id lectus imperdiet, vel feugiat enim interdum. Sed non diam vel mi tristique interdum. Integer bibendum, nulla ac euismod commodo, quam mi vehicula justo, eu dapibus ligula massa vel ligula. Nulla facilisi. Integer sit amet congue massa. Suspendisse potenti.Vivamus auctor, velit ut condimentum bibendum, purus lacus scelerisque ligula, nec gravida arcu velit id libero. In hac habitasse platea dictumst.
           </p>

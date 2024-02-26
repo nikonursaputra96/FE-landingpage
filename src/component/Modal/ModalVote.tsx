@@ -3,11 +3,13 @@ import modalvote from '../../lib/ModalVote.json'
 
 const ModalVote: React.FC = () => {
     return (
-        <div className='flex justify-center items-center'>
-            <h1 className='font-black text-5xl pt-10 text-bottomvote text-center absolute top-2'>MASUKKAN PILIHANMU</h1>
+        <div className='container'>
+            <h1 className='font-black lg:text-5xl text-3xl pt-10 text-bottomvote text-center'>MASUKKAN PILIHANMU</h1>
+        <div className='flex flex-wrap mt-12 gap-6 justify-center items-center'>
+            
             {modalvote && modalvote.map((modal, index) => {
                 return (
-                    <div className='mx-auto gap-5 mt-44 flex' key={index}>
+                    <div className='mx-auto' key={index}>
 
                         {index === 0 && (
                             <div className='w-347 h-388 drop-shadow-lg bg-cardcolor rounded-2xl'>
@@ -85,14 +87,15 @@ const ModalVote: React.FC = () => {
                         )}
 
                     </div>
-
+                
                 )
             })}
 
 
-            <div className='bottom-[-40px] absolute'>
-                <button className='mr-6  w-498 h-63 rounded-2xl border-4 border-bottomvote text-bottomvote text-center text-3xl font-bold'>RESET</button>
-                <button className='ml-6 w-503 h-68 rounded-2xl bg-bottomvote text-white text-center text-3xl font-bold'>SUBMIT</button>
+        </div>
+            <div className='py-10 px-6 flex justify-center items-center'>
+                <button className='lg:mr-6  lg:w-498 lg:h-63 w-[200px] h-[40px] rounded-2xl border-4 mr-3 border-bottomvote text-bottomvote text-center lg:text-3xl font-bold'>RESET</button>
+                <button className='lg:ml-6  lg:w-503 lg:h-68 rounded-2xl w-[200px] h-[40px] bg-bottomvote ml-3 text-white text-center lg:text-3xl font-bold'>SUBMIT</button>
             </div>
         </div>
     )
