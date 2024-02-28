@@ -62,15 +62,11 @@ const App: React.FC = () => {
 
 
   useEffect(() => {
-    if (isLogin) {
       navigate('/')
-    }
   }, [isLogin])
 
   useEffect(() => {
-    if(isLoginAdmin) {
       navigate('/admin')
-    }
   }, [isLoginAdmin])
 
   return (
