@@ -1,7 +1,7 @@
-import React from 'react'
-import InfoPaslon from '../../lib/InfoPaslon.json'
 
-const Info: React.FC = () => {
+import Votes from '../../interfaces/Vote'
+
+const Info = (info:Votes) => {
     return (
         <div className=' bg-grey '>
             <div>
@@ -10,12 +10,11 @@ const Info: React.FC = () => {
             <div className='flex justify-center items-center mb-20 px-6'>
                 <button className=' lg:ml-24 lg:w-12 lg:h-12 w-8 h-8 rounded-full bg-white lg:text-3xl text-center gap-0 text-gray-400'>&lt;</button>
 
-                {InfoPaslon && InfoPaslon.map((info, index) => {
-                    return (
-                        <div key={index} className='bg-white lg:w-947 lg:h-494 w-[450px] lg:flex mx-auto rounded-xl shadow-lg shadow-gray-500 '>
+        
+                        <div className='bg-white lg:w-947 lg:h-494 w-[450px] lg:flex mx-auto rounded-xl shadow-lg shadow-gray-500 '>
                             <img src={info.image} alt="" className='w-246 h-328 mt-10 mx-auto mb-10' />
                             <div className=' ml-3.5'>
-                                    <div className='leading-tight'>
+                                    <div className='leading-tight mt-7'>
                                         <p className='lg:text-2xl text-xl font-bold'>Nomor Urut:{info.nomor}</p>
                                         <p className='lg:text-4xl text-3xl font-bold text-reddark-2'>{info.name}</p>
                                     </div>
@@ -45,8 +44,7 @@ const Info: React.FC = () => {
                                     </ul>
                             </div>
                         </div>
-                    )
-                })}
+       
 
                 <button className=' lg:ml-24 lg:w-12 lg:h-12 w-8 h-8 rounded-full bg-white lg:text-3xl text-center gap-0 text-gray-400'>&gt;</button>
             </div>
