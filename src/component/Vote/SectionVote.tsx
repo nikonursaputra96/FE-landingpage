@@ -2,10 +2,42 @@ import React from 'react'
 import '../../../src/index.css'
 import { useState } from 'react'
 import Vote from '../../lib/Vote.json'
+import { Pie } from 'react-chartjs-2'
+import { Chart as ChartJS, Tooltip,Title,ArcElement,Legend } from 'chart.js'
+import {Chart} from 'chart.js';
+import ChartDataLabels from 'chartjs-plugin-datalabels';
 
 
 const SectionVote: React.FC = () => {
 
+  Chart.register(ChartDataLabels);
+
+  ChartJS.register (
+    Tooltip,Title,ArcElement,Legend
+  )
+  
+  const [userData] = useState<any>({
+    datasets: [{
+      label: 'Hasil',
+      data: Vote.map((data) => data.hasil),
+      backgroundColor: ['rgba(255, 99, 132, 1)','rgba(255, 205, 86, 1)','rgba(54, 162, 235, 1)'],
+      datalabels: {
+        color : '#000',
+        formatter: function(value:number) {
+          return  value + '%'
+        },
+        font: {
+          size: 24,
+          weight: 'bold'
+        },
+      }
+    }]
+  })
+
+
+ 
+
+ 
   const [vote, setVote] = useState<any>(false)
 
   const toVote = (): void => {
@@ -16,8 +48,12 @@ const SectionVote: React.FC = () => {
     <div className='container bg-white'>
         <h1 className='lg:text-5xl text-3xl font-bold text-yellowdark selection text-center pt-16'>INFO PEMILU TERUPDATE</h1>
         <div className=' container flex '>
-          {/* <div className=' mt-24 ml-24 text-2xl font-bold'>Hasil :</div> */}
-          <div className=' flex items-center justify-center mx-auto mt-28'>
+
+          <div className=' flex items-center justify-center mx-auto mt-28 flex-wrap'>
+          <div className='w-[377px] h-[368px] lg:mr-24  mb-48'>
+            <p className='font-bold text-4xl text-center mb-5 '>HASIL :</p>
+            <Pie data={userData}/>
+          </div>
             <div className='flex justify-center items-center mx-auto'>
               <section>
 
@@ -33,7 +69,7 @@ const SectionVote: React.FC = () => {
                           </div>
                           <div className=' lg:ml-8 ml-4 text-reddark-2 font-black text-shadow '>
                             <p className='lg:text-41 text-2xl leading-tight tracking-tight'>{votes.name}</p>
-                            <p className='lg:text-4xl text-2xl '>{votes.hasil}</p>
+                            <p className='lg:text-4xl text-2xl '>{votes.hasil}%</p>
                           </div>
                         </div>
                       )}
@@ -46,7 +82,7 @@ const SectionVote: React.FC = () => {
                           </div>
                           <div className=' lg:ml-8 ml-4 text-orangedark-2 font-black text-shadow '>
                             <p className='lg:text-41 text-2xl leading-tight tracking-tight'>{votes.name}</p>
-                            <p className='lg:text-4xl text-2xl '>{votes.hasil}</p>
+                            <p className='lg:text-4xl text-2xl '>{votes.hasil}%</p>
                           </div>
                         </div>
                       )}
@@ -59,7 +95,7 @@ const SectionVote: React.FC = () => {
                           </div>
                           <div className=' lg:ml-8 ml-4 text-greendark font-black text-shadow '>
                             <p className='lg:text-41 text-2xl leading-tight tracking-tight'>{votes.name}</p>
-                            <p className='lg:text-4xl text-2xl '>{votes.hasil}</p>
+                            <p className='lg:text-4xl text-2xl '>{votes.hasil}%</p>
                           </div>
                         </div>
                       )}

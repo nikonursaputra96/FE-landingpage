@@ -2,19 +2,19 @@
     {
         "nomor" : 3,
         "name" : "CINTARA SURYA PALOH",
-        "hasil" : "78%"
+        "hasil" : 78
 
     },
     {
         "nomor" : 1,
         "name" : "SURYA SURYA",
-        "hasil" : "45%"
+        "hasil" : 45
 
     },
     {
         "nomor" : 2,
         "name" : "CINTARA",
-        "hasil" : "25%"
+        "hasil" :25
 
     }
   
