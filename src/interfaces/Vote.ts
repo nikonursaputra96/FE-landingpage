@@ -1,7 +1,7 @@
 export default interface Votes{
-    nomor: number;
+    number: number;
     image: string;
     name: string;
     vismis: string[];
-    koalisi : string[];
+    coalition : string[];
 }

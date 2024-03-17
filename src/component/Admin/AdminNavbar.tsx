@@ -7,14 +7,6 @@ const AdminNavbar:React.FC = () => {
 
   const navigate = useNavigate()
 
-  const [login, setLogin] = useState<any>(false)
-
-  const loginButton = (): void => {
-    setLogin(!login)
-  }
-
-
-
   const [click, setClick] = useState<any>(false)
 
   const handleClick = ():void => {
@@ -27,7 +19,7 @@ const AdminNavbar:React.FC = () => {
       <li className=' py-5 bg-black text-white hover:bg-slate-800 cursor-pointer' onClick={() => navigate('/add-partai')}>Partai</li>
       <li className=' py-5 bg-black text-white  hover:bg-slate-800 cursor-pointer' onClick={() => navigate('/add-paslon')}>Paslon</li>
     </ul>
-    <p className=' py-5 bg-black' onClick={loginButton}>{login ? <button className=' w-8 h-8 hover:bg-slate-800 hover:text-white bg-grey rounded-full font-bold '>A</button> : <button className=' w-24 h-8 hover:bg-slate-800 hover:text-white bg-white  rounded-lg font-bold text-sm'>LOGIN</button>}</p>
+   
   </div>
 </>
 

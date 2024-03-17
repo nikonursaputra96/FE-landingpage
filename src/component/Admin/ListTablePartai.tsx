@@ -1,8 +1,27 @@
-import React from 'react'
-import ListPartai from '../../lib/ListPartai.json'
+import React, { useEffect } from 'react'
+import { useState } from 'react'
 
 
 const ListTablePartai: React.FC = () => {
+
+    const [partai, setPartai] = useState<any[]> ([])
+
+    useEffect(() => {
+        const getDataPartai = async () => {
+            try {
+                const response = await fetch('http://localhost:5000/api/v1/partais')
+                const data = await response.json()
+
+                setPartai(data)
+            } catch (error) {
+                throw error
+            }
+        }
+        getDataPartai()
+    },[])
+
+    
+
     return (
         <div className='container   overflow-x-auto'>
             <div className=''>
@@ -19,23 +38,23 @@ const ListTablePartai: React.FC = () => {
                         </tr>
                     </thead>
 
-                    {ListPartai && ListPartai.map((listpartai, index) => {
+                    {partai && partai.map((data, id) => {
                         return (
-                            <tbody key={index}>
+                            <tbody key={id}>
                                 <tr>
-                                    <td className='border lg:px-6 lg:py-3 text-center border-gray-600'>{listpartai.nomor}</td>
+                                    <td className='border lg:px-6 lg:py-3 text-center border-gray-600'>{data.number}</td>
                                     <td className='border lg:px-6 lg:py-3  border-gray-600' >
-                                        <img src={listpartai.image} className='w-78 h-94' alt="" />
+                                        <img src={data.image} className='w-78 h-94' alt="" />
                                     </td>
-                                    <td className='border lg:px-6 lg:py-3  border-gray-600'>{listpartai.name}</td>
+                                    <td className='border lg:px-6 lg:py-3  border-gray-600'>{data.name}</td>
                                     <td className='border lg:px-6 lg:py-3  border-gray-600'>
                                         <ul className='list-disc'>
-                                            <li>{listpartai.vismis[0]}</li>
-                                            <li>{listpartai.vismis[1]}</li>
-                                            <li>{listpartai.vismis[2]}</li>
+                                            <li>{data.vismis[0]}</li>
+                                            <li>{data.vismis[1]}</li>
+                                            <li>{data.vismis[2]}</li>
                                         </ul>
                                     </td>
-                                    <td className='border lg:px-6 lg:py-3  border-gray-600'>{listpartai.alamat}</td>
+                                    <td className='border lg:px-6 lg:py-3  border-gray-600'>{data.address}</td>
                                 </tr>
                             </tbody>
                         )

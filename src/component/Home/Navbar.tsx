@@ -5,11 +5,7 @@ import { useNavigate } from 'react-router-dom'
 
 const Navbar: React.FC = () => {
 
-  const [login, setLogin] = useState<any>(false)
-
-  const loginButton = (): void => {
-    setLogin(!login)
-  }
+ 
 
   const navigate = useNavigate()
 
@@ -24,10 +20,10 @@ const Navbar: React.FC = () => {
     <div className='text-center'>
       <ul className=' text-sm'>
         <li className=' py-5 bg-black text-white hover:bg-slate-800 cursor-pointer'>Partai</li>
-        <li className=' py-5 bg-black text-white  hover:bg-slate-800 cursor-pointer'>Paslon</li>
+        <li className=' py-5 bg-black text-white  hover:bg-slate-800 cursor-pointer' onClick={() => navigate('/modalvote')}>Paslon</li>
         <li className='cursor-pointer py-5 bg-black text-white  hover:bg-slate-800' onClick={() => navigate('/vote')}>Voting</li>
       </ul>
-      <p className=' py-5 bg-black' onClick={loginButton}>{login ? <button className=' w-8 h-8 hover:bg-slate-800 hover:text-white bg-grey rounded-full font-bold '>D</button> : <button className=' w-24 h-8 hover:bg-slate-800 hover:text-white bg-white  rounded-lg font-bold text-sm'>LOGIN</button>}</p>
+   
     </div>
   </>
 
@@ -45,11 +41,13 @@ const Navbar: React.FC = () => {
           <ul className='flex text-white text-xl gap-x-5 mr-10 '>
             <li>Partai</li>
             <li>|</li>
-            <li>Paslon</li>
+            <li className='cursor-pointer' onClick={() => navigate('/modalvote')}>Paslon</li>
             <li>|</li>
             <li className='cursor-pointer' onClick={() => navigate('/vote')}>Voting</li>
+            <p className=' w-36 h-36 ml-5  bg-grey rounded-full font-bold flex items-center justify-center'>D</p>
           </ul>
-          <p onClick={loginButton}>{login ? <button className='w-36 h-36  mr-28 bg-grey rounded-full'>D</button> : <button className=' bg-white w-28 h-9 rounded-lg font-bold text-xl mr-28'>LOGIN</button>}</p>
+       
+          {/* <p onClick={loginButton}>{login ? <button className='w-36 h-36  mr-28 bg-grey rounded-full'>D</button> : <button className=' bg-white w-28 h-9 rounded-lg font-bold text-xl mr-28'>LOGIN</button>}</p> */}
 
         </div>
 

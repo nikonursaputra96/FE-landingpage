@@ -4,13 +4,30 @@ import Header from '../component/Home/Header'
 import Section from '../component/Home/Section'
 import Aside from '../component/Home/Aside'
 import Footer from '../component/Home/Footer'
-import HomeNews from '../lib/HomeNews.json'
 import IHome from '../interfaces/IHome'
+import { useEffect } from 'react'
 
 
 const Home: React.FC = () => {
 
-  const [home] = useState<IHome[]>(HomeNews)
+  const [home,setHome] = useState<IHome[]>([])
+
+  useEffect (() => {
+    const getDataArticle = async () => {
+      try {
+        const response = await fetch('http://localhost:5000/api/v1/blogs')
+        const data = await response.json()
+
+        setHome (data)
+      } catch(error) {
+        throw error
+      }
+     
+    }
+
+    getDataArticle()
+  },[])
+  
   return (
     <div className='bg-grey'>
       <Navbar />
@@ -22,12 +39,12 @@ const Home: React.FC = () => {
         return (
           <div key={id}>
             <Section
-            id = {data.id}
+            idBlog = {data.idBlog}
              image = {data.image}
              date = {data.date}
              title = {data.title}
              author = {data.author}
-             detail = {data.detail}
+             content = {data.content}
             />
           </div>
         )

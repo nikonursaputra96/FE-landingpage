@@ -54,7 +54,7 @@ const SectionAdmin: React.FC = () => {
 
                             {index === 2 && (
                                 <div className='bg-admincard-3 shadow-md shadow-black rounded-2xl lg:w-367 w-[345px] h-410 flex flex-col mt-6'>
-                                <img src={adminsection.image} alt="" className='lg:w-330 w-[300px] mx-auto mt-6' />
+                                <img src={adminsection.image} alt="" className='lg:w-330 w-[300px] h-262 mx-auto mt-6' />
                                 <div className='ml-4 text-admincard-3-1 text-shadow'>
                                     <p className='text-4xl font-black mt-3'>{adminsection.nama}</p>
                                     <p className='font-bold text-xl mt-3'>Akumulasi :{adminsection.akumulasi}</p>

@@ -19,6 +19,21 @@ import ModalLogin from './component/Modal/ModalLogin'
 const App: React.FC = () => {
 
   const navigate = useNavigate()
+  const [users, setUsers] = useState<any[]>([])
+
+  // GET DATA
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const response = await fetch ("http://localhost:5000/api/v1/users")
+        const data = await response.json()
+        setUsers(data)
+      } catch (error) {
+        throw error
+      }
+    }
+    getData()
+  },[])
 
   const [formLogin, setFormLogin] = useState<Auth>({
     username: '',
@@ -37,11 +52,24 @@ const App: React.FC = () => {
 
   function login(e:FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    if(formLogin.username === "admin" && formLogin.password === "admin") {
-      setIsLoginAdmin(true)
-    } else if(formLogin.username !== "" && formLogin.password !== "" && formLogin.username !== "admin" && formLogin.password !== "admin" ) {
-      setIsLogin(true)
-    }
+    try {
+      const usersSearch = users.find((user) => {
+        return user.username === formLogin.username && user.password === formLogin.password})
+ 
+        if (usersSearch) {
+          if(formLogin.username === "admin" && formLogin.password === "admin") {
+            setIsLoginAdmin(true)
+          } else {
+            setIsLogin(true)
+          }
+        } else {
+          console.log ('Username / Password tidak cocok')
+        }
+
+    } catch (error) {
+      throw error
+    } 
+
   }
 
   function PrivateRoute() {
@@ -72,12 +100,13 @@ const App: React.FC = () => {
   return (
 
       <Routes>
-        {/* <Route path='/' element={<Home />} /> */}
+        <Route path='/' element={<Home />} />
         <Route path='/vote' element={<Vote />} />
         <Route path='/detail' element={<Detail />} />
         
 
         <Route path='/login' element={<ModalLogin handle={handleSetForm} login={login} />} />
+
         <Route path='/' element={<PrivateRoute/>}>
           <Route path='/' element={<Home/>}/>
         </Route>
@@ -94,13 +123,7 @@ const App: React.FC = () => {
         <Route path='/add-partai' element={<AddPartai />} />
         <Route path='/add-paslon' element={<AddPaslon />} />
 
-        <Route path="/" element={<PrivateRoute />}>
-          <Route path='/' element={<Home />} />
-        </Route>
-        <Route path="/" element={<PrivateRouteAdmin />}>
-          <Route path='/admin' element={<Admin />} />
-        </Route>
-
+  
       </Routes>
 
 

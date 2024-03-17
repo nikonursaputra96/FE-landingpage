@@ -9,7 +9,7 @@ const Section = (news:IHome) => {
     
         <section className='flex'>
                     <div>
-                        {news.id === 1 && (
+                        {news.idBlog === 23 && (
                         <div className=' lg:w-753 lg:h-421 bg-center bg-image cursor-pointer h-[421px] overflow-hidden' onClick={() => navigate('/detail')}>
                             <button className='bg-red w-232 h-47 rounded-xl text-white font-bold text-xl mt-72 ml-4'>{news.date}</button>
                             <h1 className='font-bold text-3xl text-white ml-4'>{news.title}</h1>
@@ -17,7 +17,7 @@ const Section = (news:IHome) => {
                         </div>
                         )}
 
-                        {news.id > 1 && (
+                        {news.idBlog > 23 && (
 
                         <div className=' cursor-pointer w-367 h-421 bg-white' onClick={() => navigate('/detail')}>
                             <img src={news.image} className='' alt="" />

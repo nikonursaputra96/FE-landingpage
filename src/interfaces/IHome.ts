@@ -1,9 +1,9 @@
 export default interface IHome {
-    id: number;
+    idBlog: number;
     image : string;
     date : string;
     title : string;
     author : string;
-    detail : string[];
+    content : string[];
 }
 
